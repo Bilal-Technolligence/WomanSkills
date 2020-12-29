@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Secondstep">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:id="@+id/top"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="#239DB3">
+                <ImageView
+                    android:id="@+id/imagelogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logoc"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageairconditionar"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="Create"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageairconditionar"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="your account in just few easy steps"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <!--                <HorizontalScrollView-->
+                <!--                    android:id="@+id/navContainer"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_centerHorizontal="true"-->
+                <!--                    android:paddingBottom="5dp"-->
+                <!--                    android:layout_below="@id/btn_reset"-->
+                <!--                    android:paddingTop="5dp"-->
+                <!--                    android:scrollbars="none">-->
+
+                <!--                    <com.library.NavigationBar-->
+                <!--                        android:id="@+id/navBar"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="56dp"-->
+                <!--                        android:padding="6dp"-->
+                <!--                        app:central_line_height="1dp"-->
+                <!--                        app:enable_border="true"-->
+                <!--                        app:only_border="false"-->
+                <!--                        app:tab_border_color_array="@array/border_state_colors"-->
+                <!--                        app:tab_color_array="@array/indicator_colors"-->
+                <!--                        app:tab_indicator_color="@color/sky_blue"-->
+                <!--                        app:tab_padding="70dp"-->
+                <!--                        app:tab_strok_width="3dp"-->
+                <!--                        app:tab_text_color_array="@array/text_state_colors"-->
+                <!--                        app:tab_text_size="18sp"/>-->
+                <!--                </HorizontalScrollView>-->
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="16dp">
+
+                <!-- Email Label -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/buttoncolor"
+                    android:text="Full Name"
+                    android:gravity="left"
+                    android:textSize="20sp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginBottom="8dp">
+                    <EditText android:id="@+id/input_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="15dp"
+                        android:inputType="textPersonName"
+                        android:hint="Enter name here" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="16dp">
+
+                <!-- Email Label -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/buttoncolor"
+                    android:text="Gender"
+                    android:gravity="left"
+                    android:textSize="20sp"/>
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleGroup3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    app:checkedButton="@id/btnMale"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMale"
+                        style="@style/IconOnlyButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        app:iconTint="@color/sky_blue" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/IconOnlyButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/IconOnlyButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other"
+                        />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+
+
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="3"
+                android:background="@color/buttoncolor"
+                />
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="16dp">
+
+                <!-- Email Label -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/buttoncolor"
+                    android:text="Date of Birthday"
+                    android:gravity="left"
+                    android:textSize="20sp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginBottom="8dp">
+                    <TextView
+                        android:id="@+id/datepicker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="15dp"
+                        android:inputType="date"
+                        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+                        android:hint="MM - DD - YYYY" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_weight="3"
+                    android:backgroundTint="@color/sky_blue"
+                    app:backgroundTint="@color/sky_blue" />
+
+
+
+
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sigup"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="confirmInput"
+                android:padding="10dp"
+                app:cardBackgroundColor="@color/purple_200"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="10dp"
+                tools:ignore="OnClick">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Next "
+                    android:padding="10dp"
+                    android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:textColor="#ffffff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

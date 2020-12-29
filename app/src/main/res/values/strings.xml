@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">WomanSkills</string>
+    <string name="country_prompt">Choose a province</string>
+
+    <string-array name="country_arrays">
+        <item>Punjab</item>
+        <item>Islamabad</item>
+        <item>Sindh</item>
+        <item>KPK</item>
+        <item>GB</item>
+        <item>Balochistan</item>
+    </string-array>
+
+    <string name="distric">Choose a distric</string>
+    <string name="finish">Finish</string>
+    <string name="mm_dd_yyyy">MM - DD - YYYY</string>
+    <string name="todo">TODO</string>
+    <string name="full_name">Full Name</string>
+    <string name="save_continue"><![CDATA[Save&Continue]]></string>
+
+    <string-array name="distric_array">
+        <item>Rawalpindi</item>
+        <item>Gujrat</item>
+        <item>Lahore</item>
+        <item>Faislabad</item>
+    </string-array>
+    <string-array name="category">
+        <item>Select category</item>
+        <item>Technical</item>
+        <item>Nontechnical</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="subcategory">
+        <item>Select subcategory</item>
+        <item>Android</item>
+        <item>Web</item>
+        <item>React</item>
+
+    </string-array>
 </resources>
