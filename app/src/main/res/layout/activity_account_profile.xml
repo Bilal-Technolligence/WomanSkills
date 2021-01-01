@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AccountProfileActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/playerCard"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginBottom="10dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:id="@+id/playerImages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/download"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:background="@color/sky_blue"
+                    android:layout_marginEnd="150dp"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+                <ImageView
+                    android:id="@+id/skillImages"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/logoc" />
+
+                <TextView
+                    android:id="@+id/txtPName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="1dp"
+                    android:text="Naveed  "
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/secondLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/topLayout"
+            android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/summarycard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/white"
+            app:cardElevation="5dp">
+            <LinearLayout
+                android:id="@+id/layouta"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginStart="10dp"
+                    android:text="SUMMARY "
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="Add Summary "
+                    android:textColor="@color/sky_blue"
+                    android:textSize="25dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textAlignment="center"
+                    android:text="Add short summary to tell any potential employers about who you are and why you are the best for their job. "
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/dark_blue"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:layout_margin="25dp"
+                    android:text="Add Summary" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/thirdLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/topLayout"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/white"
+                    app:cardElevation="5dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:layout_marginStart="10dp"
+                            android:text="SKILLS "
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:text="Add Skills "
+                            android:textColor="@color/sky_blue"
+                            android:textSize="25dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:textAlignment="center"
+                            android:text="Select skills that best match your qualifications and expertise and we'll provide your jobs which best match your profile. "
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/dark_blue"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:layout_margin="25dp"
+                            android:text="Add Skills" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/white"
+        app:itemIconTint="@drawable/selectorcolor"
+        app:itemTextColor="@color/sky_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
+</RelativeLayout>
