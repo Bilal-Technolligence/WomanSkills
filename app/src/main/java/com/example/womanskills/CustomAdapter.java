@@ -1,41 +1,78 @@
 package com.example.womanskills;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
-public class CustomAdapter extends BaseAdapter {
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
+
+    ArrayList<String> personNames;
+    ArrayList<Integer> personImages;
     Context context;
-    int logos[];
-    LayoutInflater inflter;
-    public CustomAdapter(Context applicationContext, int[] logos) {
-        this.context = applicationContext;
-        this.logos = logos;
-        inflter = (LayoutInflater.from(applicationContext));
-    }
-    @Override
-    public int getCount() {
-        return logos.length;
+
+    public CustomAdapter(Context context, ArrayList<String> personNames, ArrayList<Integer> personImages) {
+        this.context = context;
+        this.personNames = personNames;
+        this.personImages = personImages;
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // infalte the item Layout
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.dashboardprofiles, parent, false);
+        // set the view's size, margins, paddings and layout parameters
+        MyViewHolder vh = new MyViewHolder(v); // pass the view to View Holder
+        return vh;
     }
 
     @Override
-    public long getItemId(int position) {
-        return 0;
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        // set the data in items
+        holder.name.setText(personNames.get(position));
+        holder.image.setImageResource(personImages.get(position));
+        // implement setOnClickListener event on item view.
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // open another activity on item click
+                Intent intent = new Intent(context, ChooseSkillActivity.class);
+                intent.putExtra("image", personImages.get(position)); // put image data in Intent
+                context.startActivity(intent); // start Intent
+            }
+        });
+
     }
 
+
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
-        view = inflter.inflate(R.layout.skillsselection, null); // inflate the layout
-        ImageView icon = (ImageView) view.findViewById(R.id.skillImages); // get the reference of ImageView
-        icon.setImageResource(logos[position]); // set logo images
-        return view;
+    public int getItemCount() {
+        return personNames.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        // init the item view's
+        TextView name;
+        ImageView image;
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+
+            // get the reference of item view's
+            name = (TextView) itemView.findViewById(R.id.txtSDescription);
+            RatingBar simpleRatingBar = (RatingBar) itemView.findViewById(R.id.ratingbar); // initiate a rating bar
+            simpleRatingBar.setNumStars(1);
+            image = (ImageView) itemView.findViewById(R.id.image);
+
+        }
     }
 }

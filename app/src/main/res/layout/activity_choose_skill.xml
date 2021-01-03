@@ -13,7 +13,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:text="Browse"
+        android:text="Browse Skill"
         android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -65,18 +65,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Add skills to your profile "
+                    android:text="Add products to your profile "
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
                 <Button
+                    android:id="@+id/addSkills"
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/dark_blue"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     android:textColor="@color/white"
-                    android:text="Add skills" />
+                    android:text="Add Product" />
 
             </LinearLayout>
 

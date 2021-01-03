@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class ChooseSkillActivity extends AppCompatActivity  {
+    Button btnAddSkills;
 //RecyclerView recyclerView;
 //ArrayList<String> Names= new ArrayList<>();
 GridView simpleGrid;
@@ -26,7 +28,7 @@ GridView simpleGrid;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_skill);
-
+        btnAddSkills =findViewById(R.id.addSkills);
         simpleGrid = (GridView) findViewById(R.id.simpleGridView); // init GridView
         // Create an object of CustomAdapter and set Adapter to GirdView
        // simpleList = (GridView) findViewById(R.id.simpleGridView);
@@ -40,10 +42,15 @@ GridView simpleGrid;
 //        MyAdapter myAdapter=new MyAdapter(this,R.layout.grid_view_items,birdList);
 //        simpleList.setAdapter(myAdapter);
 
+btnAddSkills.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(getApplicationContext(),SetSkillActivity.class));
+    }
+});
 
 
-
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), logos);
+        CustomAdapters customAdapter = new CustomAdapters(getApplicationContext(), logos);
         simpleGrid.setAdapter(customAdapter);
         // implement setOnItemClickListener event on GridView
         simpleGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -76,14 +83,14 @@ GridView simpleGrid;
                         startActivity(new Intent(getApplicationContext(), AccountProfileActivity.class));
                         overridePendingTransition(0,0);
                         return true;
-//                    case R.id.nav_setting:
-//                        startActivity(new Intent(getApplicationContext(), DietActivity.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
-//                    case R.id.nav_notification:
-//                        startActivity(new Intent(getApplicationContext(), DietActivity.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
+                    case R.id.nav_home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.nav_message:
+                        startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }
