@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
+
         <LinearLayout
             android:id="@+id/top"
             android:layout_width="match_parent"
@@ -91,15 +92,33 @@
                 android:visibility="visible">
 
                 <!-- Name Label -->
-                <TextView
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="left"
-                    android:text="@string/full_name"
-                    android:textColor="@color/buttoncolor"
-                    android:textSize="20sp" />
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/full_name"
+                        android:textColor="@color/buttoncolor"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="پورا نام"
+                        android:textColor="@color/buttoncolor"
+                        android:textSize="20sp" />
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -126,15 +145,33 @@
                     android:paddingTop="16dp">
 
                     <!-- Email Label -->
-                    <TextView
+                    <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="1dp"
-                        android:gravity="left"
-                        android:text="Gender"
-                        android:textColor="@color/buttoncolor"
-                        android:textSize="20sp" />
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Gender"
+                            android:textColor="@color/buttoncolor"
+                            android:textSize="20sp" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="جنس"
+                            android:textColor="@color/buttoncolor"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
                         android:id="@+id/toggleGroup3"
@@ -187,15 +224,33 @@
                     android:paddingTop="16dp">
 
                     <!-- Email Label -->
-                    <TextView
+                    <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="left"
-                        android:text="Date of Birthday"
-                        android:textColor="@color/buttoncolor"
-                        android:textSize="20sp" />
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Date of Birth"
+                            android:textColor="@color/buttoncolor"
+                            android:textSize="20sp" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="پیدائش کی تاریخ"
+                            android:textColor="@color/buttoncolor"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
