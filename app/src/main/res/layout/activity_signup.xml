@@ -78,7 +78,8 @@
                         app:tab_padding="80dp"
                         app:tab_strok_width="8dp"
                         app:tab_text_color_array="@array/text_state_colors"
-                        app:tab_text_size="18sp" />
+                        app:tab_text_size="18sp"
+                        tools:ignore="MissingClass" />
                 </HorizontalScrollView>
 
             </LinearLayout>
@@ -88,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingTop="16dp"
+                android:padding="20dp"
                 android:visibility="visible">
 
                 <!-- Name Label -->
@@ -101,41 +102,39 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
+                        android:textSize="14sp"
                         android:gravity="left"
                         android:text="@string/full_name"
-                        android:textColor="@color/buttoncolor"
-                        android:textSize="20sp" />
+                        android:textColor="@color/buttoncolor"/>
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:gravity="right"
                         android:text="پورا نام"
-                        android:textColor="@color/buttoncolor"
-                        android:textSize="20sp" />
+                        android:textColor="@color/buttoncolor"/>
                 </LinearLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:backgroundTint="@color/white">
+                    android:hint="Full Name"
+                    android:id="@+id/homename"
+                    app:boxStrokeColor="#000032"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/appblue">
 
-                    <EditText
-                        android:id="@+id/input_email"
+                    <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:backgroundTint="@color/white"
-                        android:hint="Enter name...."
-                        android:inputType="textPersonName"
-                        android:textSize="20sp" />
+                        android:layout_height="match_parent"
+                        android:singleLine="true"
+                        android:inputType="text" />
+
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <LinearLayout
 
@@ -154,23 +153,19 @@
                         <TextView
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:gravity="left"
                             android:text="Gender"
-                            android:textColor="@color/buttoncolor"
-                            android:textSize="20sp" />
+                            android:textColor="@color/buttoncolor"/>
                         <TextView
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="جنس"
-                            android:textColor="@color/buttoncolor"
-                            android:textSize="20sp" />
+                            android:text="صنف"
+                            android:textColor="@color/buttoncolor"/>
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -233,23 +228,19 @@
                         <TextView
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:gravity="left"
                             android:text="Date of Birth"
-                            android:textColor="@color/buttoncolor"
-                            android:textSize="20sp" />
+                            android:textColor="@color/buttoncolor"/>
                         <TextView
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="پیدائش کی تاریخ"
-                            android:textColor="@color/buttoncolor"
-                            android:textSize="20sp" />
+                            android:text="تاریخ پیدائش"
+                            android:textColor="@color/buttoncolor"/>
                     </LinearLayout>
 
                     <RelativeLayout
@@ -260,25 +251,25 @@
                         android:layout_weight=".28"
                         android:background="@color/white"
                         android:orientation="horizontal">
-
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:backgroundTint="@color/white">
+                            android:id="@+id/dob"
+                            app:boxStrokeColor="#000032"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:endIconMode="clear_text"
+                            app:endIconTint="@color/appblue">
 
-                            <TextView
+                            <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/datepicker"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:autofillHints=""
-                                android:backgroundTint="@color/white"
+                                android:layout_height="match_parent"
                                 android:hint="@string/mm_dd_yyyy"
-                                android:inputType="date"
-                                android:textSize="20sp" />
-                        </com.google.android.material.textfield.TextInputLayout>
+                                android:autofillHints=""
+                                android:inputType="date" />
 
+                        </com.google.android.material.textfield.TextInputLayout>
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -307,7 +298,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="25dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:onClick="onClickView"
@@ -337,19 +328,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:padding="20dp"
                 android:paddingTop="1dp"
                 android:visibility="gone">
 
                 <!-- Email Label -->
-                <TextView
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="left"
-                    android:text="User Name"
-                    android:textColor="@color/buttoncolor"
-                    android:textSize="20sp" />
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/full_name"
+                        android:textColor="@color/buttoncolor"/>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text=" لاگ ان کیلئے نام"
+                        android:textColor="@color/buttoncolor"/>
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -361,11 +367,9 @@
                         android:id="@+id/txtUserName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
                         android:backgroundTint="@color/white"
                         android:hint="Enter username...."
-                        android:inputType="textPersonName"
-                        android:textSize="20sp" />
+                        android:inputType="textPersonName"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
@@ -376,15 +380,29 @@
                     android:paddingTop="1dp">
 
                     <!-- Email Label -->
-                    <TextView
+                    <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="1dp"
-                        android:gravity="left"
-                        android:text="Email"
-                        android:textColor="@color/buttoncolor"
-                        android:textSize="20sp" />
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Email"
+                            android:textColor="@color/buttoncolor" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="صارف ای میل"
+                            android:textColor="@color/buttoncolor" />
+                    </LinearLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -396,16 +414,12 @@
                             android:id="@+id/txtEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
                             android:backgroundTint="@color/white"
                             android:hint="Enter email...."
-                            android:inputType="textEmailAddress"
-                            android:textSize="20sp" />
+                            android:inputType="textEmailAddress"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
-
-
                 <LinearLayout
 
                     android:layout_width="match_parent"
@@ -413,60 +427,85 @@
                     android:orientation="vertical"
                     android:paddingTop="1dp">
 
-                    <!-- Email Label -->
-                    <TextView
+                    <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="left"
-                        android:text="Password"
-                        android:textColor="@color/buttoncolor"
-                        android:textSize="20sp" />
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Password"
+                            android:textColor="@color/buttoncolor" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="پاس ورڈ"
+                            android:textColor="@color/buttoncolor"/>
+                    </LinearLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
+                        app:passwordToggleEnabled="true"
                         android:backgroundTint="@color/white">
 
                         <EditText
                             android:id="@+id/txtpassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
                             android:backgroundTint="@color/white"
                             android:hint="Enter password...."
                             android:inputType="textPassword"
-                            android:textSize="20sp" />
+                            app:passwordToggleEnabled="true"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="left"
-                        android:text="Confirm password"
-                        android:textColor="@color/buttoncolor"
-                        android:textSize="20sp" />
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Confirm Password"
+                            android:textColor="@color/buttoncolor"/>
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="پاس ورڈ کی تصدیق"
+                            android:textColor="@color/buttoncolor"/>
+                    </LinearLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
+                        app:passwordToggleEnabled="true"
                         android:backgroundTint="@color/white">
 
                         <EditText
                             android:id="@+id/txtrepassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
                             android:backgroundTint="@color/white"
-                            android:hint="Re-enter password...."
-                            android:inputType="textPassword"
-                            android:textSize="20sp" />
+                            android:hint="Re-Enter password...."
+                            android:inputType="textPassword"/>
                     </com.google.android.material.textfield.TextInputLayout>
-
-
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
@@ -506,19 +545,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:padding="20dp"
                 android:paddingTop="1dp"
                 android:visibility="gone">
 
-                <!-- Email Label -->
-                <TextView
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="left"
-                    android:text="CNIC#"
-                    android:textColor="@color/buttoncolor"
-                    android:textSize="20sp" />
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="CNIC#"
+                        android:textColor="@color/buttoncolor"/>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="شناختی کارڈ#"
+                        android:textColor="@color/buttoncolor"/>
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -530,28 +583,40 @@
                         android:id="@+id/txtCnic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
                         android:backgroundTint="@color/white"
                         android:hint="  00000-0000000-0"
-                        android:inputType="textMultiLine"
-                        android:textSize="20sp" />
+                        android:textColor="@color/black"
+                        android:inputType="textPostalAddress" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="1dp"
-                    android:gravity="left"
-                    android:text="Provinces"
-                    android:textColor="@color/buttoncolor"
-                    android:textSize="20sp" />
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Province"
+                        android:textColor="@color/buttoncolor"/>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="صوبہ"
+                        android:textColor="@color/buttoncolor"/>
+                </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:layout_marginRight="3dp"
                     android:layout_weight=".28"
                     android:background="@color/white"
                     android:orientation="horizontal">
@@ -562,7 +627,6 @@
                         android:layout_height="33dp"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:layout_marginStart="15dp"
                         android:background="@android:color/transparent"
                         android:entries="@array/country_arrays"
                         android:gravity="center"
@@ -575,7 +639,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_gravity="right"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="30dp"
+                        android:layout_marginRight="10dp"
                         android:src="@drawable/down_arrow" />
 
                 </RelativeLayout>
@@ -588,21 +652,35 @@
                     android:layout_weight="3"
                     android:background="@color/gray" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="left"
-                    android:text="Distric"
-                    android:textColor="@color/buttoncolor"
-                    android:textSize="20sp" />
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Distric"
+                        android:textColor="@color/buttoncolor"/>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="ضلع"
+                        android:textColor="@color/buttoncolor"/>
+                </LinearLayout>
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="3dp"
                     android:layout_weight=".28"
                     android:background="@color/white"
                     android:orientation="horizontal">
@@ -613,7 +691,6 @@
                         android:layout_height="33dp"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:layout_marginStart="15dp"
                         android:background="@android:color/transparent"
                         android:entries="@array/distric_array"
                         android:gravity="center"
@@ -626,7 +703,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_gravity="right"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="30dp"
+                        android:layout_marginRight="10dp"
                         android:src="@drawable/down_arrow" />
 
                 </RelativeLayout>
@@ -639,14 +716,29 @@
                     android:layout_weight="3"
                     android:background="@color/gray" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="left"
-                    android:text="Address"
-                    android:textColor="@color/buttoncolor"
-                    android:textSize="20sp" />
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Address"
+                        android:textColor="@color/buttoncolor"/>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="پتہ"
+                        android:textColor="@color/buttoncolor"/>
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -658,11 +750,10 @@
                         android:id="@+id/txtAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
                         android:backgroundTint="@color/white"
                         android:hint="Enter Address...."
-                        android:inputType="textPostalAddress"
-                        android:textSize="20sp" />
+                        app:endIconTint="@color/appblue"
+                        android:inputType="textPostalAddress"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
 
