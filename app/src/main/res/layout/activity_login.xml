@@ -51,55 +51,81 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="16dp">
-                <TextView
+                android:padding="20dp">
+                <!-- Email Label -->
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/buttoncolor"
-                    android:text="Email"
-                    android:gravity="left"
-                    android:textSize="20sp"/>
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Email"
+                        android:textColor="@color/buttoncolor"/>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="صارف ای میل"
+                        android:textColor="@color/buttoncolor"/>
+                </LinearLayout>
                 <!-- Email Label -->
               <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:backgroundTint="@color/white"
-                    android:layout_marginBottom="8dp">
+                  app:passwordToggleEnabled="true"
+                  android:layout_marginBottom="8dp">
                     <EditText android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:textSize="20sp"
-                        android:layout_marginLeft="15dp"
                         android:inputType="textEmailAddress"
                         android:hint="Enter register email...." />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Password Label -->
-
-                <TextView
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/buttoncolor"
-                    android:text="Password"
-                    android:gravity="left"
-                    android:textSize="20sp"/>
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Password"
+                        android:textColor="@color/buttoncolor"/>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="پاس ورڈ"
+                        android:textColor="@color/buttoncolor"/>
+                </LinearLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    app:passwordToggleEnabled="true"
                     android:layout_marginBottom="8dp">
                     <EditText android:id="@+id/input_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:textSize="20sp"
-                        android:layout_marginLeft="15dp"
                         android:inputType="textPassword"
                         android:hint="Enter password...."/>
                 </com.google.android.material.textfield.TextInputLayout>

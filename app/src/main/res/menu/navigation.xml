@@ -10,10 +10,7 @@
         android:id="@+id/nav_search"
         android:icon="@drawable/search"
         android:title="Search" />
-    <item
-        android:id="@+id/nav_add"
-        android:icon="@drawable/add"
-        android:title="Add" />
+
     <item
         android:id="@+id/nav_message"
         android:icon="@drawable/chat"
@@ -22,4 +19,8 @@
         android:id="@+id/nav_profile"
         android:icon="@drawable/profile"
         android:title="Profile" />
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/setting"
+        android:title="Setting" />
 </menu>

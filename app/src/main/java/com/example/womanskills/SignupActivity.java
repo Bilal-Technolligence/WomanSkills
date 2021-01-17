@@ -8,9 +8,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +28,7 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
     private static final String TAG = "SignupActivity";
     CardView btnFirst,btnSecond,btnFinish;
     LinearLayout llfirst,llsecond,llfinal;
+    EditText edit_password;
     private NavigationBar bar;
     private int position = 0;
     private TextView mDisplayDate;
@@ -44,9 +49,10 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
         setup(true, 3);
         //StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         // stateProgressBar.setStateDescriptionData(descriptionData);    }
+        edit_password = findViewById(R.id.txtpassword);
 
+     //Set Date
 
-     //Set Dtae
         mDisplayDate = (TextView) findViewById(R.id.datepicker);
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
@@ -120,4 +126,24 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
     public void onTabSelected(int touchPosition, NvTab prev, NvTab nvTab) {
 
     }
+
+//    public void ShowHidePass(View view){
+//
+//        if(view.getId()==R.id.show_pass_btn){
+//
+//            if(edit_password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+//                ((new ImageView(view)).setImageResource(R.drawable.eye_24px));
+//
+//                //Show Password
+//                edit_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+//            }
+//            else{
+//                ((ImageView)(view)).setImageResource(R.drawable.hide_24px);
+//
+//                //Hide Password
+//                edit_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+//
+//            }
+//        }
+//    }
 }

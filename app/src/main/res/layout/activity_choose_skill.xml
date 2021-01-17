@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".ChooseSkillActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
         android:text="Browse Skill"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
     <SearchView
         android:id="@+id/simpleSearchView"
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
         android:layout_height="50dp"
         android:iconifiedByDefault="false"
         android:queryHint="Search Here" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:background="@color/lightgray"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="10dp"
         android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/topLayout"
@@ -39,18 +38,14 @@
             android:id="@+id/playerCard"
             android:layout_width="match_parent"
             android:layout_height="210dp"
-            android:layout_marginBottom="10dp"
             android:backgroundTint="@color/white"
             app:cardElevation="2dp">
 
             <LinearLayout
-                android:id="@+id/playerImages"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/skillImages"
@@ -66,8 +61,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Add products to your profile "
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textColor="@color/black"/>
 
                 <Button
                     android:id="@+id/addSkills"
@@ -90,21 +84,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/topLayout"
-
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
             android:background="@color/white"
             android:text="Browse by Category"
             android:textColor="@color/black"
-            android:textSize="25dp"
+            android:gravity="fill_vertical"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <GridView
+            android:layout_marginTop="1dp"
             android:id="@+id/simpleGridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,4 +125,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
-</RelativeLayout>
+</LinearLayout>
