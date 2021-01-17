@@ -28,7 +28,6 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".ForgetPassword" />
-        <activity android:name=".Secondstep" />
         <activity
             android:name=".SignupActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
