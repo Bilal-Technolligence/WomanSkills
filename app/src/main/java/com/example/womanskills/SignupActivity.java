@@ -34,7 +34,7 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
 
     private NavigationBar bar;
     private int position = 0;
-    private EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userCnic,userAddress;
+    EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userCnic,userAddress;
     Button btnMale,btnFemale,btnOther;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     @Override

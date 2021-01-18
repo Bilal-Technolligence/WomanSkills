@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     Button btn_Login;
     TextView txtSignUp,forgetPassword;
+    EditText email , password;
 
 
     @Override
@@ -20,8 +22,8 @@ public class LoginActivity extends AppCompatActivity {
         btn_Login =(Button) findViewById(R.id.btn_login);
         txtSignUp = (TextView) findViewById(R.id.signUp);
         forgetPassword = (TextView) findViewById(R.id.forget);
-
-
+        email = findViewById(R.id.input_email);
+        password = findViewById(R.id.input_password);
 
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,8 +37,11 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this,ForgetPassword.class));
             }
         });
-    }
+        btn_Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    public void onClickView(View view) {
+            }
+        });
     }
 }
