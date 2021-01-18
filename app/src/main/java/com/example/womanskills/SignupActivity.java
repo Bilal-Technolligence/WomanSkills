@@ -12,12 +12,14 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 import com.library.NavigationBar;
 import com.library.NvTab;
@@ -27,11 +29,13 @@ import java.util.Calendar;
 public class SignupActivity extends AppCompatActivity implements NavigationBar.OnTabSelected, NavigationBar.OnTabClick {
     private static final String TAG = "SignupActivity";
     CardView btnFirst,btnSecond,btnFinish;
-    LinearLayout llfirst,llsecond,llfinal;
-    EditText edit_password;
+    LinearLayout layoutFirst,layoutSecond,layoutFinal;
+   // TextInputLayout userName, userDob;
+
     private NavigationBar bar;
     private int position = 0;
-    private TextView mDisplayDate;
+    private EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userCnic,userAddress;
+    Button btnMale,btnFemale,btnOther;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,19 +45,32 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
         btnFirst = (CardView) findViewById(R.id.btn_firstStep);
         btnSecond = (CardView) findViewById(R.id.btn_secondStep);
         btnFinish = (CardView) findViewById(R.id.btn_finalStep);
-        llfirst =(LinearLayout) findViewById(R.id.firststep);
-        llsecond =(LinearLayout) findViewById(R.id.secondstep);
-        llfinal =(LinearLayout) findViewById(R.id.finalstep);
+        layoutFirst =(LinearLayout) findViewById(R.id.firststep);
+        layoutSecond =(LinearLayout) findViewById(R.id.secondstep);
+        layoutFinal =(LinearLayout) findViewById(R.id.finalstep);
         bar.setOnTabSelected(this);
         bar.setOnTabClick(this);
         setup(true, 3);
         //StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         // stateProgressBar.setStateDescriptionData(descriptionData);    }
-        edit_password = findViewById(R.id.txtpassword);
+        password = (EditText) findViewById(R.id.txtPassword);
+        userName = (EditText) findViewById(R.id.txtName);
+        rePassword =(EditText) findViewById(R.id.txtRePassword);
+        mDisplayDate = (EditText) findViewById(R.id.datepicker);
+        fullName =(EditText) findViewById(R.id.txtFullName);
+        userEmail = (EditText) findViewById(R.id.txtEmail);
+        userCnic = (EditText) findViewById(R.id.txtCnic);
+        userAddress = (EditText) findViewById(R.id.txtAddress);
 
-     //Set Date
+        //Button
+        btnMale =(Button)findViewById(R.id.btnMale);
+        btnFemale =(Button)findViewById(R.id.btnFeMale);
+        btnOther =(Button)findViewById(R.id.btnOther);
 
-        mDisplayDate = (TextView) findViewById(R.id.datepicker);
+
+
+
+        //Set Date
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,21 +104,21 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
     public void onClickView(View v) {
         switch (v.getId()) {
             case R.id.btn_firstStep:
-                llfirst.setVisibility(View.GONE);
-                llsecond.setVisibility(View.VISIBLE);
-                llfinal.setVisibility(View.GONE);
+                layoutFirst.setVisibility(View.GONE);
+                layoutSecond.setVisibility(View.VISIBLE);
+                layoutFinal.setVisibility(View.GONE);
                 bar.setCurrentPosition(++position);
                 break;
             case R.id.btn_secondStep:
-                llfinal.setVisibility(View.VISIBLE);
-                llsecond.setVisibility(View.GONE);
-                llfirst.setVisibility(View.GONE);
+                layoutFinal.setVisibility(View.VISIBLE);
+                layoutSecond.setVisibility(View.GONE);
+                layoutFirst.setVisibility(View.GONE);
                 bar.setCurrentPosition(++position);
                 break;
             case R.id.btn_finalStep:
-                llfirst.setVisibility(View.VISIBLE);
-                llsecond.setVisibility(View.GONE);
-                llfinal.setVisibility(View.GONE);
+                layoutFirst.setVisibility(View.VISIBLE);
+                layoutSecond.setVisibility(View.GONE);
+                layoutFinal.setVisibility(View.GONE);
                 setup(true, 3);
                 startActivity(new Intent(SignupActivity.this,MainActivity.class));
                 finish();

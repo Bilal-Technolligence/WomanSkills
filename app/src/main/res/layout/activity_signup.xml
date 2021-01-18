@@ -90,7 +90,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="20dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <!-- Name Label -->
                 <LinearLayout
@@ -121,13 +121,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Full Name"
-                    android:id="@+id/homename"
                     app:boxStrokeColor="#000032"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/appblue">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:singleLine="true"
@@ -186,6 +186,7 @@
                             app:iconTint="@color/buttoncolor" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFeMale"
                             style="@style/IconOnlyButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -193,6 +194,7 @@
                             app:iconTint="@color/buttoncolor" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnOther"
                             style="@style/IconOnlyButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -255,7 +257,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:id="@+id/dob"
+                            android:id="@+id/txtDob"
                             app:boxStrokeColor="#000032"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             app:endIconMode="clear_text"
@@ -265,9 +267,10 @@
                                 android:id="@+id/datepicker"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:gravity="fill_vertical"
                                 android:hint="@string/mm_dd_yyyy"
                                 android:autofillHints=""
-                                android:inputType="date" />
+                                android:inputType="date"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
                         <ImageView
@@ -364,7 +367,7 @@
                     android:backgroundTint="@color/white">
 
                     <EditText
-                        android:id="@+id/txtUserName"
+                        android:id="@+id/txtFullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
@@ -459,7 +462,7 @@
                         android:backgroundTint="@color/white">
 
                         <EditText
-                            android:id="@+id/txtpassword"
+                            android:id="@+id/txtPassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
@@ -499,7 +502,7 @@
                         android:backgroundTint="@color/white">
 
                         <EditText
-                            android:id="@+id/txtrepassword"
+                            android:id="@+id/txtRePassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
@@ -547,7 +550,7 @@
                 android:orientation="vertical"
                 android:padding="20dp"
                 android:paddingTop="1dp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
