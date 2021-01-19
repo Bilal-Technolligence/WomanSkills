@@ -9,7 +9,9 @@
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/search"
-        android:title="Search" />
+        android:title="Search"
+        android:iconTint="#d89c13"
+        app:backgroundColor="#d89c13"/>
 
     <item
         android:id="@+id/nav_message"
@@ -22,5 +24,6 @@
     <item
         android:id="@+id/nav_setting"
         android:icon="@drawable/setting"
-        android:title="Setting" />
+        android:title="Setting"
+       />
 </menu>

@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-
     android:orientation="vertical"
     tools:context=".SetSkillActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
         android:fitsSystemWindows="true">
 
 
@@ -21,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:padding="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -34,7 +33,7 @@
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     android:gravity="left"
                     android:text="Skill tittle"
                     android:textColor="@color/buttoncolor" />
@@ -54,48 +53,10 @@
                         android:inputType="textPersonName"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:gravity="left"
-                    android:text="Catagory"
-                    android:textColor="@color/buttoncolor"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight=".28"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-
-                    <Spinner
-                        android:id="@+id/spinner_province"
-                        android:layout_width="match_parent"
-                        android:layout_height="33dp"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center"
-                        android:background="@android:color/transparent"
-                        android:entries="@array/category"
-                        android:gravity="center"
-                        android:prompt="@string/country_prompt"
-                        android:spinnerMode="dropdown" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/down_arrow" />
-
-                </RelativeLayout>
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="3"
                     android:background="@color/gray" />
@@ -117,7 +78,7 @@
                     android:orientation="horizontal">
 
                     <Spinner
-                        android:id="@+id/spinner_distric"
+                        android:id="@+id/spinner_subCategory"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
                         android:layout_centerVertical="true"
@@ -125,7 +86,7 @@
                         android:background="@android:color/transparent"
                         android:entries="@array/subcategory"
                         android:gravity="center"
-                        android:prompt="@string/distric"
+                        android:prompt="@string/subcat"
                         android:spinnerMode="dropdown" />
 
                     <ImageView
@@ -149,31 +110,71 @@
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="left"
-                    android:text="Search tags"
+                    android:text="Select Start Budget"
                     android:textColor="@color/buttoncolor"/>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:backgroundTint="@color/white">
+                    android:layout_marginTop="5dp"
+                    android:layout_weight=".28"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/txtAddress"
+                    <Spinner
+                        android:id="@+id/spinner_budget"
                         android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:entries="@array/budget"
+                        android:gravity="center"
+                        android:spinnerMode="dropdown" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:backgroundTint="@color/white"
-                        android:hint="Enter Address...."
-                        android:inputType="textPostalAddress"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/down_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="3"
+                    android:background="@color/gray" />
+
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="left"
                     android:text="Search tags"
+                    android:textColor="@color/buttoncolor"/>
+
+                <SearchView
+                    android:id="@+id/simpleSearchView"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="50dp"
+                    android:iconifiedByDefault="false"
+                    android:queryHint="Search Here" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="left"
+                    android:text="Detail Description"
                     android:textColor="@color/buttoncolor"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -185,7 +186,7 @@
                     <EditText
                         android:id="@+id/txtDescription"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="150dp"
                         android:layout_marginLeft="5dp"
                         android:backgroundTint="@color/white"
                         android:hint="Tell us about your skill...."
@@ -197,7 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:onClick="onClickView"
@@ -212,7 +213,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:padding="10dp"
-
                         android:text="@string/save_continue"
                         android:textColor="#ffffff"
                         android:textSize="20sp"
@@ -228,5 +228,19 @@
         </LinearLayout>
 
     </ScrollView>
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/white"
+        app:itemIconTint="@drawable/selectorcolor"
+        app:itemTextColor="@color/sky_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

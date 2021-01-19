@@ -12,6 +12,7 @@
     </string-array>
 
     <string name="distric">Choose a distric</string>
+    <string name="subcat">Choose a SubSkill</string>
     <string name="finish">Finish</string>
     <string name="mm_dd_yyyy">MM - DD - YYYY</string>
     <string name="todo">TODO</string>
@@ -31,10 +32,15 @@
         <item>Other</item>
     </string-array>
     <string-array name="subcategory">
-        <item>Select subcategory</item>
         <item>Android</item>
         <item>Web</item>
         <item>React</item>
+
+    </string-array>
+    <string-array name="budget">
+        <item>$5</item>
+        <item>$10</item>
+        <item>$20</item>
 
     </string-array>
 </resources>
