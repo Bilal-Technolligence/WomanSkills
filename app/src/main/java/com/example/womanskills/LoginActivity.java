@@ -2,8 +2,10 @@ package com.example.womanskills;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_Login;
     TextView txtSignUp,forgetPassword;
     EditText email , password;
-
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,9 @@ public class LoginActivity extends AppCompatActivity {
         forgetPassword = (TextView) findViewById(R.id.forget);
         email = findViewById(R.id.input_email);
         password = findViewById(R.id.input_password);
-
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Logging In..... ");
+        final FirbaseAuthenticationClass firbaseAuthenticationClass=new FirbaseAuthenticationClass();
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +44,16 @@ public class LoginActivity extends AppCompatActivity {
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String EMAIL = email.getText().toString().trim();
+                String PASSWORD = password.getText().toString().trim();
+                if (!Patterns.EMAIL_ADDRESS.matcher(EMAIL).matches()){
+                    email.setError("Invalid email");
+                    email.setFocusable(true);
+                }else {
+                    progressDialog.show();
+                    firbaseAuthenticationClass.LoginUser(EMAIL,PASSWORD, LoginActivity.this, progressDialog);
 
+                }
             }
         });
     }
