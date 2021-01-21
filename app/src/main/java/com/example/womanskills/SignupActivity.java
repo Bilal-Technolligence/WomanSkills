@@ -1,12 +1,15 @@
 package com.example.womanskills;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -17,9 +20,22 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 import com.library.NavigationBar;
 import com.library.NvTab;
@@ -31,12 +47,15 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
     CardView btnFirst,btnSecond,btnFinish;
     LinearLayout layoutFirst,layoutSecond,layoutFinal;
    // TextInputLayout userName, userDob;
-
+    String gender = "Male";
+    ProgressDialog progressDialog;
     private NavigationBar bar;
     private int position = 0;
-    private EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userCnic,userAddress;
+    EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userCnic,userAddress;
     Button btnMale,btnFemale,btnOther;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference reference = database.getReference("Users");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +70,8 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
         bar.setOnTabSelected(this);
         bar.setOnTabClick(this);
         setup(true, 3);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Registering..... ");
         //StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         // stateProgressBar.setStateDescriptionData(descriptionData);    }
         password = (EditText) findViewById(R.id.txtPassword);
@@ -66,8 +87,58 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
         btnMale =(Button)findViewById(R.id.btnMale);
         btnFemale =(Button)findViewById(R.id.btnFeMale);
         btnOther =(Button)findViewById(R.id.btnOther);
+        btnMale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gender = "Male";
+            }
+        });
+        btnFemale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gender = "Female";
+            }
+        });
+        btnOther.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gender = "Other";
+            }
+        });
+        layoutFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Username = userName.getText().toString();
+                String Fullname = fullName.getText().toString();
+                String Email = userEmail.getText().toString();
+                String CNIC = userCnic.getText().toString();
+                String Address = userAddress.getText().toString();
+                String Password = password.getText().toString();
+                String Password2 = rePassword.getText().toString();
+                String Date = mDisplayDate.getText().toString();
+                if (Username.isEmpty())
+                    userName.setError("Field can not be Empty");
+                else if (Fullname.isEmpty())
+                    fullName.setError("Field can not be Empty");
+                else if (!Password.equals(Password2))
+                    rePassword.setError("Password must be same!");
+                else if (Email.isEmpty())
+                    userEmail.setError("Field can not be Empty");
+                else if (CNIC.isEmpty())
+                    userCnic.setError("Field can not be Empty");
+                else if (Address.isEmpty())
+                    userAddress.setError("Field can not be Empty");
+                else if (Date.isEmpty())
+                    mDisplayDate.setError("Field can not be Empty");
+                else
+                {
+                    progressDialog.show();
+                    RegisterUser(Username, Fullname, Email, CNIC,Address, Password, Date , gender );
+                }
 
+            }
 
+        });
 
 
         //Set Date
@@ -100,7 +171,49 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                 mDisplayDate.setText(date);
             }
         };
+
+
+
+
     }
+
+    private void RegisterUser(String username, String fullname, String email, String cnic, String address, String password, String date, String gender) {
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            UserAttr userAttr = new UserAttr();
+                            userAttr.setEmail(email);
+                            userAttr.setFullname(fullname);
+                            userAttr.setAddress(address);
+                            userAttr.setId(uid);
+                            userAttr.setCnic(cnic);
+                            userAttr.setGender(gender);
+                            userAttr.setDate(date);
+                            reference.child(uid).setValue(userAttr);
+
+                            Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
+//                                  getApplicationContext().finish();
+                            //save session
+                            //saving value true for session
+                            //Save.save(getApplicationContext(),"session","true");
+                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                            progressDialog.dismiss();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(SignupActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        });
+    }
+
     public void onClickView(View v) {
         switch (v.getId()) {
             case R.id.btn_firstStep:
