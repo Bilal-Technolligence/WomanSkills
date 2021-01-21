@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.library.NavigationBar;
 import com.library.NvTab;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnSkill;
     ArrayList personNames = new ArrayList<>(Arrays.asList("Design a creative minimal logo", "Design a creative minimal logo", "Design animation videos", "Design a creative minimal logo", "Design a creative minimal logo", "Design animation videos","Design a creative minimal logo", "Design a creative minimal logo", "Design animation videos","Design a creative minimal logo", "Design a creative minimal logo", "Design animation videos", "Design a creative minimal logo", "Design a creative minimal logo", "Design animation videos","Design a creative minimal logo", "Design a creative minimal logo", "Design animation videos"));
     ArrayList personImages = new ArrayList<>(Arrays.asList(R.drawable.back, R.drawable.back, R.drawable.abc, R.drawable.logoa, R.drawable.logoa, R.drawable.logoc, R.drawable.download, R.drawable.logoa,R.drawable.logoa, R.drawable.logoc, R.drawable.download, R.drawable.logoa,R.drawable.back, R.drawable.back, R.drawable.abc, R.drawable.logoa, R.drawable.logoa, R.drawable.logoc, R.drawable.download, R.drawable.logoa,R.drawable.logoa));
+   // DatabaseReference dref= FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +37,20 @@ public class MainActivity extends AppCompatActivity {
         btnSkill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               // dref.child("Skills/Category/Sub").setValue( "Android Developer" );
                 startActivity(new Intent(getApplicationContext(),ChooseSkillActivity.class));
             }
         });
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-      //  RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.recyclerview2);
 
         // set a GridLayoutManager with 2 number of columns , horizontal gravity and false value for reverseLayout to show the items from start to end
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
-      //  GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
-     //   recyclerView2.setLayoutManager(gridLayoutManager1);// set LayoutManager to RecyclerView
+
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
         CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, personNames,personImages);
         recyclerView.setAdapter(customAdapter); // set the Adapter to RecyclerView
-       // recyclerView2.setAdapter(customAdapter);
-        //Bottom Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         //set Home Seleceted
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
