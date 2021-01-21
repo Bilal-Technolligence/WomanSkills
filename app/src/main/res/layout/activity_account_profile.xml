@@ -28,18 +28,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/dark_blue"
+                android:background="@drawable/backgroundcolors"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="10dp">
-                <ImageView
-                    android:id="@+id/skillImages"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/logoc" />
+                <LinearLayout
+                    android:id="@+id/piclayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:orientation="vertical">
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/txtImg"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/logoc"
+                        app:civ_border_color="#FFF"
+                        app:civ_border_width="2dp" />
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/txtPName"
+                    android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"

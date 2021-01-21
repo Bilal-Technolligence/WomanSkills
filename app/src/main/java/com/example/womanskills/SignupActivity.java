@@ -105,7 +105,7 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                 gender = "Other";
             }
         });
-        layoutFinal.setOnClickListener(new View.OnClickListener() {
+        btnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String Username = userName.getText().toString();
@@ -193,9 +193,8 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                             userAttr.setGender(gender);
                             userAttr.setDate(date);
                             reference.child(uid).setValue(userAttr);
-
                             Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
-//                                  getApplicationContext().finish();
+                            // getApplicationContext().finish();
                             //save session
                             //saving value true for session
                             //Save.save(getApplicationContext(),"session","true");

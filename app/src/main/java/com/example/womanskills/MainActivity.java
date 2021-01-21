@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.nav_setting:
+                        startActivity(new Intent(getApplicationContext(), SettingActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }

@@ -6,19 +6,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class SetSkillActivity extends AppCompatActivity {
-
+public class SettingActivity extends AppCompatActivity {
+Button logOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_set_skill);
+        setContentView(R.layout.activity_setting);
+
+        logOut =findViewById(R.id.btnLogout);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                finish();
+            }
+        });
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         //set Home Seleceted
-        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        bottomNavigationView.setSelectedItemId(R.id.nav_setting);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -35,8 +47,8 @@ public class SetSkillActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.nav_setting:
-                        startActivity(new Intent(getApplicationContext(), SettingActivity.class));
+                    case R.id.nav_home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

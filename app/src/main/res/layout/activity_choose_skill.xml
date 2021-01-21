@@ -29,7 +29,7 @@
         android:queryHint="Search Here" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@color/lightgray"
+        android:background="@color/light_blue"
         android:layout_marginTop="10dp"
         android:layout_height="match_parent">
     <LinearLayout

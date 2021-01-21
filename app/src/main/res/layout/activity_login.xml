@@ -82,14 +82,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:backgroundTint="@color/white"
-                  app:passwordToggleEnabled="true"
                   android:layout_marginBottom="8dp">
                     <EditText android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         android:inputType="textEmailAddress"
-                        android:hint="Enter register email...." />
+                        android:hint="Enter register email...."
+                        tools:ignore="HardcodedText" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Password Label -->
