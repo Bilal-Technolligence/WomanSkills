@@ -42,7 +42,7 @@
                     android:layout_marginTop="5dp"
                     android:text="Create"
                     android:textColor="@color/white"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -90,7 +90,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="20dp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <!-- Name Label -->
                 <LinearLayout
@@ -301,9 +301,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
-                    android:layout_marginTop="25dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="80dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="5dp"
                     android:onClick="onClickView"
                     android:padding="10dp"
                     app:cardBackgroundColor="@color/orange"
@@ -518,7 +519,7 @@
                     android:layout_gravity="right"
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="5dp"
                     android:onClick="onClickView"
                     android:padding="10dp"
                     app:cardBackgroundColor="@color/orange"
@@ -550,7 +551,7 @@
                 android:orientation="vertical"
                 android:padding="20dp"
                 android:paddingTop="1dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -565,6 +566,7 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="CNIC#"
+                        android:maxLength="15"
                         android:textColor="@color/buttoncolor"/>
                     <TextView
                         android:layout_width="fill_parent"
@@ -765,9 +767,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="5dp"
                     android:onClick="onClickView"
                     android:padding="10dp"
                     app:cardBackgroundColor="@color/orange"

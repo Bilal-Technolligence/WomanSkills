@@ -9,13 +9,15 @@
         android:roundIcon="@drawable/logoa"
         android:supportsRtl="true"
         android:theme="@style/Theme.WomanSkills">
-        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".NotificationActivity" />
         <activity
             android:name=".AccountProfileActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ChooseSkillActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".SetSkillActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -36,7 +38,7 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,9 +47,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/MaterialTheme">
-
-        </activity>
+            android:theme="@style/MaterialTheme"></activity>
     </application>
 
 </manifest>

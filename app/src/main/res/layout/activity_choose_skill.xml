@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".ChooseSkillActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:background="@color/white"
         android:text="Browse Skill"
         android:textColor="@color/black"
@@ -25,7 +29,7 @@
         android:queryHint="Search Here" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@color/lightgray"
+        android:background="@color/light_blue"
         android:layout_marginTop="10dp"
         android:layout_height="match_parent">
     <LinearLayout
@@ -37,7 +41,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/playerCard"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
+            android:layout_height="190dp"
             android:backgroundTint="@color/white"
             app:cardElevation="2dp">
 
@@ -110,6 +114,7 @@
 
     </LinearLayout>
     </RelativeLayout>
+    </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
@@ -125,4 +130,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
-</LinearLayout>
+</RelativeLayout>

@@ -23,7 +23,8 @@ public class ChooseSkillActivity extends AppCompatActivity  {
 //RecyclerView recyclerView;
 //ArrayList<String> Names= new ArrayList<>();
 GridView simpleGrid;
-    int logos[] = {R.drawable.logoa, R.drawable.logoc, R.drawable.keyskills, R.drawable.keyskills,R.drawable.logoa, R.drawable.logoc,R.drawable.logoa, R.drawable.logoc};
+    int logos[] = {R.drawable.logoa, R.drawable.content, R.drawable.web, R.drawable.keyskills,R.drawable.teacher, R.drawable.logoc,R.drawable.backskills, R.drawable.logoc};
+    String detail[] = {"Logo Designer", "Content Writer", "Web Developer","Software Developer", "Teacher","Tester", "Manager"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,7 @@ btnAddSkills.setOnClickListener(new View.OnClickListener() {
 });
 
 
-        CustomAdapters customAdapter = new CustomAdapters(getApplicationContext(), logos);
+        CustomAdapters customAdapter = new CustomAdapters(getApplicationContext(), logos, detail);
         simpleGrid.setAdapter(customAdapter);
         // implement setOnItemClickListener event on GridView
         simpleGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
