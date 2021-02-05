@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.library.NavigationBar;
 import com.library.NvTab;
 
@@ -30,29 +32,41 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnSkill = findViewById(R.id.addSkill);
-        btnSkill.setOnClickListener(new View.OnClickListener() {
+//        btnSkill.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(),ChooseSkillActivity.class));
+//            }
+//        });
+
+
+        TabLayout tabLayout=(TabLayout) findViewById(R.id.summaryTabLayout);
+        tabLayout.addTab(tabLayout.newTab().setText("Products"));
+        tabLayout.addTab(tabLayout.newTab().setText("Services"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager= (ViewPager) findViewById(R.id.summaryPager);
+        PagerAdapter pageAdapter=new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(pageAdapter);
+//        viewPager.setPageTransformer(true, new ZoomOutTranformer());
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),ChooseSkillActivity.class));
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-      //  RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.recyclerview2);
-
-        // set a GridLayoutManager with 2 number of columns , horizontal gravity and false value for reverseLayout to show the items from start to end
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
-      //  GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getApplicationContext(),2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-     //   recyclerView2.setLayoutManager(gridLayoutManager1);// set LayoutManager to RecyclerView
-        //  call the constructor of CustomAdapter to send the reference and data to Adapter
-        CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, personNames,personImages);
-        recyclerView.setAdapter(customAdapter); // set the Adapter to RecyclerView
-       // recyclerView2.setAdapter(customAdapter);
-        //Bottom Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
-        //set Home Seleceted
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
