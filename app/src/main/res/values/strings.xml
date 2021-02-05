@@ -34,6 +34,28 @@
         <item>Bussiness</item>
         <item>Local Job</item>
     </string-array>
+    <string-array name="product_category">
+        <item>Handicraft</item>
+        <item>Cloth Sewing</item>
+    </string-array>
+    <string-array name="product_handicraft">
+        <item>Embroidery</item>
+        <item>Carpets</item>
+        <item>Cotton Garments</item>
+        <item>Camel Lamps</item>
+        <item>Khussa</item>
+        <item>Wood Carvings</item>
+        <item>Earthen Pots</item>
+    </string-array>
+    <string-array name="product_cloth">
+        <item>T-Shirts</item>
+        <item>Skirts</item>
+        <item>Pants</item>
+        <item>Shorts</item>
+        <item>Jeans</item>
+        <item>Shalwar Kameez</item>
+        <item>Traditional dress</item>
+    </string-array>
     <string-array name="category">
         <item>Select category</item>
         <item>Technical</item>

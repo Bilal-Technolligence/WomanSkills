@@ -9,8 +9,11 @@
         android:roundIcon="@drawable/logoa"
         android:supportsRtl="true"
         android:theme="@style/Theme.WomanSkills">
-        <activity android:name=".SettingActivity"
+        <activity android:name=".AddProducts"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".NotificationActivity" />
         <activity
             android:name=".AccountProfileActivity"
@@ -47,7 +50,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/MaterialTheme"></activity>
+            android:theme="@style/MaterialTheme" />
     </application>
 
 </manifest>
