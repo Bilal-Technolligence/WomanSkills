@@ -56,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"
+            android:textColor="@color/black"
             android:layout_gravity="center"
             android:textSize="40dp"
             android:id="@+id/txtName"/>
@@ -64,12 +65,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Title"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:id="@+id/txtTitle"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Price"
+        android:textColor="@color/black"
         android:textSize="30dp"
         android:id="@+id/txtPrice"/>
     <LinearLayout
@@ -84,12 +87,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0"
+            android:textColor="@color/black"
             android:textSize="40dp"
             android:id="@+id/txtRating"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(0)"
+            android:textColor="@color/black"
             android:textSize="40dp"
             android:id="@+id/txtRatingNo"/>
     </LinearLayout>

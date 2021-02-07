@@ -76,7 +76,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.title.setText(productAttrs.get(position).getTitle());
         holder.price.setText(productAttrs.get(position).getPrice());
         String uid = productAttrs.get(position).getUserId();
-        databaseReference.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("Users").child(user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){

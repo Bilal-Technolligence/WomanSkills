@@ -25,7 +25,6 @@
            android:id="@+id/image"
            android:layout_width="match_parent"
            android:layout_height="100dp"
-
            android:src="@drawable/logoc"/>
 
     </RelativeLayout>
@@ -74,25 +73,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtSDescription"
+                android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:padding="5dp"
                 android:layout_marginStart="14dp"
-                android:text="Design a creative minimal logo"
+                android:text="Name"
                 android:textColor="@color/black"
-                android:textSize="12dp" />
-            <TextView
-                android:id="@+id/budget"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="right"
-                android:text="From $80"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5dp"
-                android:textColor="@color/sky_blue"
                 android:textSize="12dp" />
         </LinearLayout>
     </LinearLayout>

@@ -49,7 +49,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (!Patterns.EMAIL_ADDRESS.matcher(EMAIL).matches()){
                     email.setError("Invalid email");
                     email.setFocusable(true);
-                }else {
+                }
+                else if(EMAIL.equals("admin@gmail.com") && PASSWORD.equals("admin")){
+                    startActivity(new Intent(LoginActivity.this,AdminMain.class));
+                    finish();
+                }
+                else {
                     progressDialog.show();
                     firbaseAuthenticationClass.LoginUser(EMAIL,PASSWORD, LoginActivity.this, progressDialog);
 

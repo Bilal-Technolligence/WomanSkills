@@ -68,7 +68,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             super(itemView);
 
             // get the reference of item view's
-            name = (TextView) itemView.findViewById(R.id.txtSDescription);
+            name = (TextView) itemView.findViewById(R.id.txtName);
             RatingBar simpleRatingBar = (RatingBar) itemView.findViewById(R.id.ratingbar); // initiate a rating bar
             simpleRatingBar.setNumStars(1);
             image = (ImageView) itemView.findViewById(R.id.image);

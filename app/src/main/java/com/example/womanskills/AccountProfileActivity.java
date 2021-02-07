@@ -79,9 +79,9 @@ public class AccountProfileActivity extends AppCompatActivity {
         add2.setVisibility(View.VISIBLE);
         add.setVisibility(View.GONE);
         recyclerView = findViewById(R.id.recycler);
-        progressDialog = new ProgressDialog(getApplicationContext());
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading..... ");
-        //progressDialog.show();
+        progressDialog.show();
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         serviceAttrs = new ArrayList<ServiceAttr>();
         productAttrs = new ArrayList<ProductAttr>();
@@ -100,11 +100,11 @@ public class AccountProfileActivity extends AppCompatActivity {
                                 productAttrs.clear();
                                 //profiledata.clear();
                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                                    ServiceAttr p = dataSnapshot1.getValue(ServiceAttr.class);
-                                    serviceAttrs.add(p);
+                                    ProductAttr p = dataSnapshot1.getValue(ProductAttr.class);
+                                    productAttrs.add(p);
                                 }
                                 Collections.reverse(serviceAttrs);
-                                recyclerView.setAdapter(new ServiceListAdapter(serviceAttrs, getApplicationContext()));
+                                recyclerView.setAdapter(new ProductListAdapter(productAttrs, getApplicationContext()));
                                 progressDialog.dismiss();
                             } else {
                                 progressDialog.dismiss();

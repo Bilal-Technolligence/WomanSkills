@@ -78,7 +78,7 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
         holder.title.setText(serviceAttrs.get(position).getTitle());
         holder.description.setText(serviceAttrs.get(position).getDecription());
         String uid = serviceAttrs.get(position).getUserId();
-        databaseReference.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("Users").child(user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
