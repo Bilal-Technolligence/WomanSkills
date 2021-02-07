@@ -80,8 +80,13 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    String Name = snapshot.child("fullname").getValue().toString();
-                    holder.name.setText(Name);
+                    try {
+                        String Name = snapshot.child("fullname").getValue().toString();
+                        holder.name.setText(Name);
+                        String img = snapshot.child("img").getValue().toString();
+                        Picasso.get().load(img).into(holder.profile);
+                    }
+                    catch (Exception e){}
                 }
             }
 
