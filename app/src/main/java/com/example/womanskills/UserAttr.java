@@ -2,7 +2,7 @@ package com.example.womanskills;
 
 public class UserAttr {
 
-    String id, username, fullname, email, date, cnic,address, gender;
+    String id, username, fullname, email, date, cnic,address, gender,summary , img;
 
     public String getId() {
         return id;
@@ -68,7 +68,23 @@ public class UserAttr {
         this.gender = gender;
     }
 
-    public UserAttr(String id, String username, String fullname, String email, String date, String cnic, String address, String gender) {
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public UserAttr(String id, String username, String fullname, String email, String date, String cnic, String address, String gender, String summary, String img) {
         this.id = id;
         this.username = username;
         this.fullname = fullname;
@@ -77,6 +93,8 @@ public class UserAttr {
         this.cnic = cnic;
         this.address = address;
         this.gender = gender;
+        this.summary = summary;
+        this.img = img;
     }
 
     public UserAttr() {

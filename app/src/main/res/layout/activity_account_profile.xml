@@ -6,130 +6,157 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".AccountProfileActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-    <LinearLayout
-        android:id="@+id/topLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/profileCard"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginBottom="10dp"
-            app:cardElevation="2dp">
 
             <LinearLayout
+                android:id="@+id/topLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/backgroundcolors"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="10dp">
-                <LinearLayout
-                    android:id="@+id/piclayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:orientation="vertical">
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/txtImg"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:src="@drawable/logoc"
-                        app:civ_border_color="#FFF"
-                        app:civ_border_width="2dp" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/txtName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="1dp"
-                    android:text="Naveed  "
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txtEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="info@gmail.com"
-                    android:textStyle="bold"
-                    android:textColor="@color/white" />
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-        <RelativeLayout
-            android:id="@+id/secondLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/topLayout"
-            android:orientation="vertical">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/summarycard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/white"
-            app:cardElevation="5dp">
-            <LinearLayout
-                android:id="@+id/layouta"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="15dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:text="SUMMARY "
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:gravity="center"
-                    android:text="Add Summary "
-                    android:textColor="@color/sky_blue"
-                    android:textSize="20sp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_margin="12dp"
-                    android:textAlignment="center"
-                    android:text="Add short summary to tell any potential employers about who you are and why you are the best for their job. "
-                    android:textColor="@color/black"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/dark_blue"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:layout_margin="25dp"
-                    android:text="Add Summary" />
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profileCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/backgroundcolors"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/piclayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:orientation="vertical">
+
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/txtImg"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:src="@drawable/logoc"
+                                app:civ_border_color="#FFF"
+                                app:civ_border_width="2dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txtName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:gravity="center"
+                            android:text="Naveed  "
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="info@gmail.com"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
+            <RelativeLayout
+                android:id="@+id/secondLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/topLayout"
+                android:orientation="vertical">
 
-        </androidx.cardview.widget.CardView>
-        </RelativeLayout>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/summarycard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/white"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/layouta"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="SUMMARY "
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:id="@+id/txtAdd1"
+                            android:text="Add Summary "
+                            android:textColor="@color/sky_blue"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:gravity="center"
+                            android:id="@+id/txtAdd2"
+                            android:text="Add short summary to tell any potential employers about who you are and why you are the best for their job. "
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:id="@+id/edtSummary"
+                            android:text=""
+                            android:hint="Add summary here"
+                            android:inputType="text"
+                            android:textColor="@color/black" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="25dp"
+                            android:backgroundTint="@color/dark_blue"
+                            android:gravity="center"
+                            android:text="Add Summary"
+                            android:id="@+id/btnAddSummary"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/thirdLayout"
                 android:layout_width="match_parent"
@@ -137,17 +164,20 @@
                 android:layout_below="@id/topLayout"
                 android:layout_marginBottom="20dp"
                 android:orientation="vertical">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/white"
                     app:cardElevation="5dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="15dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -155,31 +185,49 @@
                             android:text="SKILLS "
                             android:textColor="@color/black"
                             android:textSize="18sp" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
                             android:gravity="center"
                             android:text="Add Skills "
+                            android:id="@+id/txt1"
                             android:textColor="@color/sky_blue"
                             android:textSize="20sp" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textAlignment="center"
                             android:layout_margin="12dp"
+                            android:gravity="center"
+                            android:id="@+id/txt2"
                             android:text="Select skills that best match your qualifications and expertise and we'll provide your jobs which best match your profile. "
-                            android:textColor="@color/black"/>
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
                             android:backgroundTint="@color/dark_blue"
                             android:gravity="center"
-                            android:textColor="@color/white"
-                            android:layout_margin="25dp"
-                            android:text="Add Skills" />
-
+                            android:id="@+id/btnAddProducts"
+                            android:text="Add Products"
+                            android:textColor="@color/white" />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:backgroundTint="@color/dark_blue"
+                            android:gravity="center"
+                            android:id="@+id/btnAddServices"
+                            android:text="Add Services"
+                            android:textColor="@color/white" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
                     </LinearLayout>
 
 
@@ -187,6 +235,7 @@
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
