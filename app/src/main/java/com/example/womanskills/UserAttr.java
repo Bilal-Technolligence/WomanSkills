@@ -2,7 +2,22 @@ package com.example.womanskills;
 
 public class UserAttr {
 
-    String id, username, fullname, email, date, cnic,address, gender,summary , img;
+    String id, username, fullname, email, date, phone,province,distric,address, gender,summary , img;
+
+    public UserAttr(String id, String username, String fullname, String email, String date, String phone, String province, String distric, String address, String gender, String summary, String img) {
+        this.id = id;
+        this.username = username;
+        this.fullname = fullname;
+        this.email = email;
+        this.date = date;
+        this.phone = phone;
+        this.province = province;
+        this.distric = distric;
+        this.address = address;
+        this.gender = gender;
+        this.summary = summary;
+        this.img = img;
+    }
 
     public String getId() {
         return id;
@@ -44,12 +59,28 @@ public class UserAttr {
         this.date = date;
     }
 
-    public String getCnic() {
-        return cnic;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setCnic(String cnic) {
-        this.cnic = cnic;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getDistric() {
+        return distric;
+    }
+
+    public void setDistric(String distric) {
+        this.distric = distric;
     }
 
     public String getAddress() {
@@ -81,19 +112,6 @@ public class UserAttr {
     }
 
     public void setImg(String img) {
-        this.img = img;
-    }
-
-    public UserAttr(String id, String username, String fullname, String email, String date, String cnic, String address, String gender, String summary, String img) {
-        this.id = id;
-        this.username = username;
-        this.fullname = fullname;
-        this.email = email;
-        this.date = date;
-        this.cnic = cnic;
-        this.address = address;
-        this.gender = gender;
-        this.summary = summary;
         this.img = img;
     }
 

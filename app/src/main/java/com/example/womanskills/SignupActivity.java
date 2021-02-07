@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +52,8 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
     ProgressDialog progressDialog;
     private NavigationBar bar;
     private int position = 0;
-    EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userCnic,userAddress;
+    EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userPhoneno,userAddress;
+    Spinner userProvince,userDistrict;
     Button btnMale,btnFemale,btnOther;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -80,8 +82,11 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
         mDisplayDate = (EditText) findViewById(R.id.datepicker);
         fullName =(EditText) findViewById(R.id.txtFullName);
         userEmail = (EditText) findViewById(R.id.txtEmail);
-        userCnic = (EditText) findViewById(R.id.txtCnic);
+        userPhoneno = (EditText) findViewById(R.id.txtPhoneNumber);
         userAddress = (EditText) findViewById(R.id.txtAddress);
+        //userProvince = (EditText) findViewById(R.id.);
+        userDistrict = (Spinner) findViewById(R.id.spinner_distric);
+        userProvince = (Spinner) findViewById(R.id.spinner_province);
 
         //Button
         btnMale =(Button)findViewById(R.id.btnMale);
@@ -111,9 +116,11 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                 String Username = userName.getText().toString();
                 String Fullname = fullName.getText().toString();
                 String Email = userEmail.getText().toString();
-                String CNIC = userCnic.getText().toString();
+                String Phone = userPhoneno.getText().toString();
                 String Address = userAddress.getText().toString();
                 String Password = password.getText().toString();
+                String Province =userProvince.getSelectedItem().toString();
+                String Distric = userDistrict.getSelectedItem().toString();
                 String Password2 = rePassword.getText().toString();
                 String Date = mDisplayDate.getText().toString();
                 if (Username.isEmpty())
@@ -124,16 +131,20 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                     rePassword.setError("Password must be same!");
                 else if (Email.isEmpty())
                     userEmail.setError("Field can not be Empty");
-                else if (CNIC.isEmpty())
-                    userCnic.setError("Field can not be Empty");
+                else if (Phone.isEmpty())
+                    userPhoneno.setError("Field can not be Empty");
                 else if (Address.isEmpty())
                     userAddress.setError("Field can not be Empty");
                 else if (Date.isEmpty())
                     mDisplayDate.setError("Field can not be Empty");
+                else if (Province.isEmpty())
+                    mDisplayDate.setError("Field can not be Empty");
+                else if (Distric.isEmpty())
+                    mDisplayDate.setError("Field can not be Empty");
                 else
                 {
                     progressDialog.show();
-                    RegisterUser(Username, Fullname, Email, CNIC,Address, Password, Date , gender );
+                    RegisterUser(Username, Fullname, Email, Phone,Address, Password, Date , gender,Distric,Province );
                 }
 
             }
@@ -177,7 +188,7 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
 
     }
 
-    private void RegisterUser(String username, String fullname, String email, String cnic, String address, String password, String date, String gender) {
+    private void RegisterUser(String username, String fullname, String email, String phone,String Province,String District, String address, String password, String date, String gender) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -188,9 +199,12 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                             userAttr.setEmail(email);
                             userAttr.setFullname(fullname);
                             userAttr.setAddress(address);
+                            userAttr.setUsername(username);
                             userAttr.setId(uid);
-                            userAttr.setCnic(cnic);
+                            userAttr.setPhone(phone);
                             userAttr.setGender(gender);
+                            userAttr.setDistric(District);
+                            userAttr.setProvince(Province);
                             userAttr.setDate(date);
                             reference.child(uid).setValue(userAttr);
                             Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
