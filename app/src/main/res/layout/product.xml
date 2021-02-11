@@ -51,7 +51,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/imgProfile"
-            android:src="@drawable/setting"/>
+            android:src="@drawable/dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
