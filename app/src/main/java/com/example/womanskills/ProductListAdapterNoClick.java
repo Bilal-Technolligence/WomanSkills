@@ -24,14 +24,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
+public class ProductListAdapterNoClick extends RecyclerView.Adapter<ProductListAdapterNoClick.ViewHolder> {
     ArrayList<ProductAttr> productAttrs;
     private Context context;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-    public ProductListAdapter(ArrayList<ProductAttr> productAttrs, Context context) {
+    public ProductListAdapterNoClick(ArrayList<ProductAttr> productAttrs, Context context) {
         this.context = context;
         this.productAttrs = productAttrs;
     }
@@ -136,14 +136,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                     holder.back.setVisibility(View.VISIBLE);
                     holder.frwd.setVisibility(View.VISIBLE);
                 }
-            }
-        });
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context , ProductDetail.class);
-                i.putExtra("id",id);
-                context.startActivity(i);
             }
         });
     }

@@ -24,34 +24,34 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
-    ArrayList<ProductAttr> productAttrs;
+public class ServiceListAdapterNoClick extends RecyclerView.Adapter<ServiceListAdapterNoClick.ViewHolder> {
+    ArrayList<ServiceAttr> serviceAttrs;
     private Context context;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-    public ProductListAdapter(ArrayList<ProductAttr> productAttrs, Context context) {
+    public ServiceListAdapterNoClick(ArrayList<ServiceAttr> serviceAttrs, Context context) {
         this.context = context;
-        this.productAttrs = productAttrs;
+        this.serviceAttrs = serviceAttrs;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        int A[] = new int[productAttrs.size()];
+        int A[] = new int[serviceAttrs.size()];
         A[position] = 0;
-        String user = productAttrs.get(position).getUserId();
+        String user = serviceAttrs.get(position).getUserId();
         if (!uid.equals(user)){
             holder.delete.setVisibility(View.GONE);
         }
-        String id = productAttrs.get(position).getId();
+        String id = serviceAttrs.get(position).getId();
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +62,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                databaseReference.child("Products").child(id).setValue(null);
+                                databaseReference.child("Services").child(id).setValue(null);
+                                notifyDataSetChanged();
                             }
 
                         })
@@ -70,13 +71,13 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                         .show();
             }
         });
-        Picasso.get().load(productAttrs.get(position).getImage1()).into(holder.img1);
+        Picasso.get().load(serviceAttrs.get(position).getImage1()).into(holder.img1);
 //        Picasso.get().load(productAttrs.get(position).getImage2()).into(holder.img2);
 //        Picasso.get().load(productAttrs.get(position).getImage3()).into(holder.img3);
         holder.back.setVisibility(View.GONE);
-        holder.title.setText(productAttrs.get(position).getTitle());
-        holder.price.setText(productAttrs.get(position).getPrice());
-        String uid = productAttrs.get(position).getUserId();
+        holder.title.setText(serviceAttrs.get(position).getTitle());
+        holder.description.setText(serviceAttrs.get(position).getDecription());
+        String uid = serviceAttrs.get(position).getUserId();
         databaseReference.child("Users").child(user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -101,17 +102,17 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             public void onClick(View view) {
                 A[position]++;
                 if(A[position]==0){
-                    Picasso.get().load(productAttrs.get(position).getImage1()).into(holder.img1);
+                    Picasso.get().load(serviceAttrs.get(position).getImage1()).into(holder.img1);
                     holder.back.setVisibility(View.GONE);
                     holder.frwd.setVisibility(View.VISIBLE);
                 }
                 if(A[position]==2){
-                    Picasso.get().load(productAttrs.get(position).getImage3()).into(holder.img1);
+                    Picasso.get().load(serviceAttrs.get(position).getImage3()).into(holder.img1);
                     holder.back.setVisibility(View.VISIBLE);
                     holder.frwd.setVisibility(View.GONE);
                 }
                 if (A[position]==1){
-                    Picasso.get().load(productAttrs.get(position).getImage2()).into(holder.img1);
+                    Picasso.get().load(serviceAttrs.get(position).getImage2()).into(holder.img1);
                     holder.back.setVisibility(View.VISIBLE);
                     holder.frwd.setVisibility(View.VISIBLE);
                 }
@@ -122,40 +123,32 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             public void onClick(View view) {
                 A[position]--;
                 if(A[position]==0){
-                    Picasso.get().load(productAttrs.get(position).getImage1()).into(holder.img1);
+                    Picasso.get().load(serviceAttrs.get(position).getImage1()).into(holder.img1);
                     holder.back.setVisibility(View.GONE);
                     holder.frwd.setVisibility(View.VISIBLE);
                 }
                 if(A[position]==2){
-                    Picasso.get().load(productAttrs.get(position).getImage3()).into(holder.img1);
+                    Picasso.get().load(serviceAttrs.get(position).getImage3()).into(holder.img1);
                     holder.back.setVisibility(View.VISIBLE);
                     holder.frwd.setVisibility(View.GONE);
                 }
                 if (A[position]==1){
-                    Picasso.get().load(productAttrs.get(position).getImage2()).into(holder.img1);
+                    Picasso.get().load(serviceAttrs.get(position).getImage2()).into(holder.img1);
                     holder.back.setVisibility(View.VISIBLE);
                     holder.frwd.setVisibility(View.VISIBLE);
                 }
-            }
-        });
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context , ProductDetail.class);
-                i.putExtra("id",id);
-                context.startActivity(i);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return productAttrs.size();
+        return serviceAttrs.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img1 ,profile;
-        TextView frwd, back, name ,title , price;
+        TextView frwd, back, name ,title , description;
         Button delete;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -163,10 +156,11 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             profile = (ImageView) itemView.findViewById(R.id.imgProfile);
             name = (TextView) itemView.findViewById(R.id.txtName);
             title = (TextView) itemView.findViewById(R.id.txtTitle);
-            price = (TextView) itemView.findViewById(R.id.txtPrice);
+            description = (TextView) itemView.findViewById(R.id.txtDescription);
             frwd = (TextView) itemView.findViewById(R.id.btnFrwd);
             back = (TextView) itemView.findViewById(R.id.btnBack);
             delete = (Button) itemView.findViewById(R.id.btnDelete);
+
         }
     }
 }

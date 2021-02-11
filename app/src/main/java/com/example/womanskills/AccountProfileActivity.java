@@ -104,7 +104,7 @@ public class AccountProfileActivity extends AppCompatActivity {
                                     productAttrs.add(p);
                                 }
                                 Collections.reverse(serviceAttrs);
-                                recyclerView.setAdapter(new ProductListAdapter(productAttrs, getApplicationContext()));
+                                recyclerView.setAdapter(new ProductListAdapterNoClick(productAttrs, getApplicationContext()));
                                 progressDialog.dismiss();
                             } else {
                                 progressDialog.dismiss();
@@ -143,7 +143,7 @@ public class AccountProfileActivity extends AppCompatActivity {
                                     serviceAttrs.add(p);
                                 }
                                 Collections.reverse(serviceAttrs);
-                                recyclerView.setAdapter(new ServiceListAdapter(serviceAttrs, getApplicationContext()));
+                                recyclerView.setAdapter(new ServiceListAdapterNoClick(serviceAttrs, getApplicationContext()));
                                 progressDialog.dismiss();
                             } else {
                                 progressDialog.dismiss();

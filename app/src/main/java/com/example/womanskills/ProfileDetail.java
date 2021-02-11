@@ -95,7 +95,7 @@ public class ProfileDetail extends AppCompatActivity {
                         productAttrs.add(p);
                     }
                     Collections.reverse(serviceAttrs);
-                    recyclerView.setAdapter(new ProductListAdapter(productAttrs, getApplicationContext()));
+                    recyclerView.setAdapter(new ProductListAdapterNoClick(productAttrs, getApplicationContext()));
                     progressDialog.dismiss();
                 } else {
                     progressDialog.dismiss();
@@ -118,7 +118,7 @@ public class ProfileDetail extends AppCompatActivity {
                         serviceAttrs.add(p);
                     }
                     Collections.reverse(serviceAttrs);
-                    recyclerView.setAdapter(new ServiceListAdapter(serviceAttrs, getApplicationContext()));
+                    recyclerView.setAdapter(new ServiceListAdapterNoClick(serviceAttrs, getApplicationContext()));
                     progressDialog.dismiss();
                 } else {
                     progressDialog.dismiss();

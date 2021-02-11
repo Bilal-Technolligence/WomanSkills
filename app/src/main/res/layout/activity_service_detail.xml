@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/backgroundlayout"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="5dp"
-    android:padding="5dp">
 
+    android:background="#fff"
+    android:layout_margin="5dp"
+    tools:context=".ServiceDetail">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300dp">
@@ -56,11 +57,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"
-            android:textColor="@color/black"
+            android:textColor="#000"
             android:layout_gravity="center"
             android:textSize="40dp"
             android:id="@+id/txtName"/>
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,15 +73,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Price"
+        android:text="Description"
+        android:textSize="15dp"
         android:textColor="@color/black"
-        android:textSize="30dp"
-        android:id="@+id/txtPrice"/>
+        android:id="@+id/txtDescription"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <RatingBar
             android:id="@+id/ratingbar"
             android:layout_width="50dp"
@@ -108,7 +109,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Remove Product"
+        android:text="Contact Service Provider"
         android:background="@color/buttoncolor"
-        android:id="@+id/btnDelete"/>
+        android:id="@+id/btnContact"/>
 </LinearLayout>
