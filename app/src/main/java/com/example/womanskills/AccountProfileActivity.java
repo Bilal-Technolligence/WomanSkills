@@ -93,7 +93,7 @@ public class AccountProfileActivity extends AppCompatActivity {
                     addServices.setVisibility(View.GONE);
                     txt1.setVisibility(View.GONE);
                     txt2.setVisibility(View.GONE);
-                    databaseReference.child("Products").addValueEventListener(new ValueEventListener() {
+                    databaseReference.child("Products").orderByChild("userId").equalTo(uid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -104,7 +104,7 @@ public class AccountProfileActivity extends AppCompatActivity {
                                     productAttrs.add(p);
                                 }
                                 Collections.reverse(serviceAttrs);
-                                recyclerView.setAdapter(new ProductListAdapterNoClick(productAttrs, getApplicationContext()));
+                                recyclerView.setAdapter(new ProductListAdapterNoClick(productAttrs, getApplicationContext(), AccountProfileActivity.this));
                                 progressDialog.dismiss();
                             } else {
                                 progressDialog.dismiss();
@@ -132,7 +132,7 @@ public class AccountProfileActivity extends AppCompatActivity {
                     addProducts.setVisibility(View.GONE);
                     txt1.setVisibility(View.GONE);
                     txt2.setVisibility(View.GONE);
-                    databaseReference.child("Services").addValueEventListener(new ValueEventListener() {
+                    databaseReference.child("Services").orderByChild("userId").equalTo(uid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -143,7 +143,7 @@ public class AccountProfileActivity extends AppCompatActivity {
                                     serviceAttrs.add(p);
                                 }
                                 Collections.reverse(serviceAttrs);
-                                recyclerView.setAdapter(new ServiceListAdapterNoClick(serviceAttrs, getApplicationContext()));
+                                recyclerView.setAdapter(new ServiceListAdapterNoClick(serviceAttrs, getApplicationContext() , AccountProfileActivity.this));
                                 progressDialog.dismiss();
                             } else {
                                 progressDialog.dismiss();

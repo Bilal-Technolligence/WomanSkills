@@ -1,9 +1,9 @@
 package com.example.womanskills;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,13 +27,15 @@ import java.util.ArrayList;
 public class ProductListAdapterNoClick extends RecyclerView.Adapter<ProductListAdapterNoClick.ViewHolder> {
     ArrayList<ProductAttr> productAttrs;
     private Context context;
+    Activity activity;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-    public ProductListAdapterNoClick(ArrayList<ProductAttr> productAttrs, Context context) {
+    public ProductListAdapterNoClick(ArrayList<ProductAttr> productAttrs, Context context, Activity activity) {
         this.context = context;
         this.productAttrs = productAttrs;
+        this.activity = activity;
     }
 
     @NonNull
@@ -55,7 +57,7 @@ public class ProductListAdapterNoClick extends RecyclerView.Adapter<ProductListA
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(context)
+                new AlertDialog.Builder(activity)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setMessage("Are you sure you want to delete?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener()

@@ -6,16 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -95,7 +88,7 @@ public class ProfileDetail extends AppCompatActivity {
                         productAttrs.add(p);
                     }
                     Collections.reverse(serviceAttrs);
-                    recyclerView.setAdapter(new ProductListAdapterNoClick(productAttrs, getApplicationContext()));
+                    recyclerView.setAdapter(new ProductListAdapterNoClick(productAttrs, getApplicationContext(), ProfileDetail.this));
                     progressDialog.dismiss();
                 } else {
                     progressDialog.dismiss();
@@ -118,7 +111,7 @@ public class ProfileDetail extends AppCompatActivity {
                         serviceAttrs.add(p);
                     }
                     Collections.reverse(serviceAttrs);
-                    recyclerView.setAdapter(new ServiceListAdapterNoClick(serviceAttrs, getApplicationContext()));
+                    recyclerView.setAdapter(new ServiceListAdapterNoClick(serviceAttrs, getApplicationContext(), ProfileDetail.this));
                     progressDialog.dismiss();
                 } else {
                     progressDialog.dismiss();
