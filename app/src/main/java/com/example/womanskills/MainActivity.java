@@ -80,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), ChooseSkillActivity.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.nav_message:
-                        startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
+
+                    case R.id.nav_setting:
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
                         overridePendingTransition(0,0);
                         return true;
                 }
