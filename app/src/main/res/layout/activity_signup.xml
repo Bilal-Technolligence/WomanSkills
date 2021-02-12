@@ -90,7 +90,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="20dp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <!-- Name Label -->
                 <LinearLayout
@@ -551,7 +551,7 @@
                 android:orientation="vertical"
                 android:padding="20dp"
                 android:paddingTop="1dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
