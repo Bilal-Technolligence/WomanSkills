@@ -51,7 +51,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/imgProfile"
-            android:src="@drawable/setting"/>
+            android:src="@drawable/dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,10 +80,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <ImageView
+        <RatingBar
+            android:id="@+id/ratingbar"
             android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/setting"/>
+            android:layout_height="20dp"
+            android:padding="1dp"
+            android:layout_gravity="center"
+            style = "?android:attr/ratingBarStyleSmall"
+            android:numStars = "1"
+            android:theme="@style/RatingBar"
+            android:layout_marginLeft="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

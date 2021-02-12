@@ -139,6 +139,14 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
                 }
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context , ServiceDetail.class);
+                i.putExtra("id",id);
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
