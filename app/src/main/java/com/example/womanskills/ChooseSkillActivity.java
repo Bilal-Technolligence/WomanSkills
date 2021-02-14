@@ -24,7 +24,7 @@ public class ChooseSkillActivity extends AppCompatActivity  {
 //ArrayList<String> Names= new ArrayList<>();
 GridView simpleGrid;
     int logos[] = {R.drawable.logoa, R.drawable.content, R.drawable.web, R.drawable.keyskills,R.drawable.teacher, R.drawable.logoc,R.drawable.backskills, R.drawable.logoc};
-    String detail[] = {"Logo Designer", "Content Writer", "Web Developer","Software Developer", "Teacher","Tester", "Manager"};
+    String detail[] = {"Logo Designer", "Content Writer", "Web Developer","Software Developer", "Teacher","Tester", "Manager","Tester"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ GridView simpleGrid;
 btnAddSkills.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(getApplicationContext(),SetSkillActivity.class));
+       // startActivity(new Intent(getApplicationContext(),SetSkillActivity.class));
     }
 });
 

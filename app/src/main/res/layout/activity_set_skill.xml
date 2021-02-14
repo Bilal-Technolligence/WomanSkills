@@ -140,17 +140,17 @@
                     <ImageView
                         android:layout_width="120dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/setting"
+                        android:src="@drawable/dp"
                         android:id="@+id/img1"/>
                     <ImageView
                         android:layout_width="120dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/setting"
+                        android:src="@drawable/dp"
                         android:id="@+id/img2"/>
                     <ImageView
                         android:layout_width="120dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/setting"
+                        android:src="@drawable/dp"
                         android:id="@+id/img3"/>
                 </LinearLayout>
 

@@ -170,8 +170,6 @@ public class SetSkillActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(SetSkillActivity.this, MainActivity.class);
-        startActivity(intent);
         finish();
     }
 

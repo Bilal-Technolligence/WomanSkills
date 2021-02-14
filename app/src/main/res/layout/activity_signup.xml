@@ -565,8 +565,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text="CNIC#"
-                        android:maxLength="15"
+                        android:text="Phone#"
                         android:textColor="@color/buttoncolor"/>
                     <TextView
                         android:layout_width="fill_parent"
@@ -574,7 +573,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:text="شناختی کارڈ#"
+                        android:text="فون نمبر#"
                         android:textColor="@color/buttoncolor"/>
                 </LinearLayout>
 
@@ -585,13 +584,14 @@
                     android:backgroundTint="@color/white">
 
                     <EditText
-                        android:id="@+id/txtCnic"
+                        android:id="@+id/txtPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:hint="  00000-0000000-0"
+                        android:hint="  03xxxxxxx"
+                        android:maxLength="11"
                         android:textColor="@color/black"
-                        android:inputType="textPostalAddress" />
+                        android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout

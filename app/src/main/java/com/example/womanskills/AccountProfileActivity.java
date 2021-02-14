@@ -81,7 +81,7 @@ public class AccountProfileActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading..... ");
-        progressDialog.show();
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         serviceAttrs = new ArrayList<ServiceAttr>();
         productAttrs = new ArrayList<ProductAttr>();

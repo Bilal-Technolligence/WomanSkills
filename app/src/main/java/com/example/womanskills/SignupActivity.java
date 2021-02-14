@@ -15,12 +15,14 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,11 +53,14 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
     ProgressDialog progressDialog;
     private NavigationBar bar;
     private int position = 0;
-    EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userCnic,userAddress;
+    EditText mDisplayDate,userName,password,rePassword,fullName,userEmail,userAddress , userPhoneno  ;
+    Spinner spinnerProvince , spinnerDistrict;
     Button btnMale,btnFemale,btnOther;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference reference = database.getReference("Users");
+    String province = "Punjab";
+    String distric = "Rawalpindi";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,9 +85,32 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
         mDisplayDate = (EditText) findViewById(R.id.datepicker);
         fullName =(EditText) findViewById(R.id.txtFullName);
         userEmail = (EditText) findViewById(R.id.txtEmail);
-        userCnic = (EditText) findViewById(R.id.txtCnic);
         userAddress = (EditText) findViewById(R.id.txtAddress);
+        userPhoneno= (EditText) findViewById(R.id.txtPhone);
+        spinnerProvince = (Spinner) findViewById(R.id.spinner_province);
+        spinnerDistrict = (Spinner) findViewById(R.id.spinner_distric);
+        spinnerProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                province = (String) parent.getItemAtPosition(position);
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                province = "Punjab";
+            }
+        });
+        spinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                distric = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                distric = "Rawalpindi";
+            }
+        });
         //Button
         btnMale =(Button)findViewById(R.id.btnMale);
         btnFemale =(Button)findViewById(R.id.btnFeMale);
@@ -111,7 +139,7 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                 String Username = userName.getText().toString();
                 String Fullname = fullName.getText().toString();
                 String Email = userEmail.getText().toString();
-                String CNIC = userCnic.getText().toString();
+                String Phone = userPhoneno.getText().toString();
                 String Address = userAddress.getText().toString();
                 String Password = password.getText().toString();
                 String Password2 = rePassword.getText().toString();
@@ -124,8 +152,8 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                     rePassword.setError("Password must be same!");
                 else if (Email.isEmpty())
                     userEmail.setError("Field can not be Empty");
-                else if (CNIC.isEmpty())
-                    userCnic.setError("Field can not be Empty");
+                else if (Phone.isEmpty())
+                    userPhoneno.setError("Field can not be Empty");
                 else if (Address.isEmpty())
                     userAddress.setError("Field can not be Empty");
                 else if (Date.isEmpty())
@@ -133,7 +161,7 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                 else
                 {
                     progressDialog.show();
-                    RegisterUser(Username, Fullname, Email, CNIC,Address, Password, Date , gender );
+                    RegisterUser(Username, Fullname, Email, Phone ,Address, Password, Date , gender ,province , distric);
                 }
 
             }
@@ -177,7 +205,7 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
 
     }
 
-    private void RegisterUser(String username, String fullname, String email, String cnic, String address, String password, String date, String gender) {
+    private void RegisterUser(String username, String fullname, String email, String phone, String address, String password, String date, String gender, String province , String district) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -186,10 +214,13 @@ public class SignupActivity extends AppCompatActivity implements NavigationBar.O
                             final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                             UserAttr userAttr = new UserAttr();
                             userAttr.setEmail(email);
+                            userAttr.setUsername(username);
                             userAttr.setFullname(fullname);
                             userAttr.setAddress(address);
                             userAttr.setId(uid);
-                            userAttr.setCnic(cnic);
+                            userAttr.setPhone(phone);
+                            userAttr.setProvince(province);
+                            userAttr.setDistric(district);
                             userAttr.setGender(gender);
                             userAttr.setDate(date);
                             reference.child(uid).setValue(userAttr);

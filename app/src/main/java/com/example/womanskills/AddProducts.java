@@ -197,8 +197,6 @@ public class AddProducts extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(AddProducts.this, MainActivity.class);
-        startActivity(intent);
         finish();
     }
 
