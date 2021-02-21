@@ -82,7 +82,7 @@ public class NotificationActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_profile:
-                        startActivity(new Intent(getApplicationContext(), AccountProfileActivity.class));
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_setting:

@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/logoa"
         android:supportsRtl="true"
         android:theme="@style/Theme.WomanSkills">
-        <activity android:name=".Chat"></activity>
+        <activity android:name=".Profile">
+
+        </activity>
+        <activity android:name=".Chat" />
         <activity android:name=".ServiceDetail" />
         <activity android:name=".ProductDetail" />
         <activity android:name=".ProfileDetail" />
